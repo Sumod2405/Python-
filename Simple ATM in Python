@@ -1,0 +1,45 @@
+#Simple ATM model
+#check balace, deposit money , withdtraw mone , exit
+ 
+ 
+class ATM :
+    balance = 0
+    def check_balance(self):
+        print(f"Your Current Balance is : {self.balance}")
+    def deposite(self  ):
+        amount = float(input("Enter the amount you deposite"))
+        self.balance = self.balance + amount
+        print("Successfully Credited")
+    def withdraw(self):
+        amount = float(input("Enter the amount you widthraw"))
+        if amount  <= self.balance: 
+         self.balance = self.balance - amount
+         print("Successfully Debited")
+        else:
+           print("Insufficient Balance") 
+
+class Display(ATM):
+    def show(self):
+      while True:
+        print("================================") 
+        print("===        ATM   MENU        === ") 
+        print("===   1 <===> check balance  ===")
+        print("===   2 <===> deposite       ===")
+        print("===   3 <===> withdraw       ===")
+        print("===   4 <===> exit           ===")
+        print("================================") 
+        num = int(input("Enter The  : Input "))  
+
+        if num == 1:
+            super().check_balance()
+        elif num == 2:
+            super().deposite() 
+        elif num == 3:
+            super().withdraw()    
+        elif num == 4:
+            break     
+        else:
+           print("please selct valid")           
+
+atm = Display()
+atm.show() 
